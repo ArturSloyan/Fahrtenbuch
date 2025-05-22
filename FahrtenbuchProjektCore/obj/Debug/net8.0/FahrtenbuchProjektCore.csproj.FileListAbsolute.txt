@@ -1,0 +1,15 @@
+C:\Users\lwnsla0\source\repos\Fahrtenbuch\FahrtenbuchProjektCore\bin\Debug\net8.0\FahrtenbuchProjektCore.deps.json
+C:\Users\lwnsla0\source\repos\Fahrtenbuch\FahrtenbuchProjektCore\bin\Debug\net8.0\FahrtenbuchProjektCore.runtimeconfig.json
+C:\Users\lwnsla0\source\repos\Fahrtenbuch\FahrtenbuchProjektCore\bin\Debug\net8.0\FahrtenbuchProjektCore.dll
+C:\Users\lwnsla0\source\repos\Fahrtenbuch\FahrtenbuchProjektCore\bin\Debug\net8.0\FahrtenbuchProjektCore.pdb
+C:\Users\lwnsla0\source\repos\Fahrtenbuch\FahrtenbuchProjektCore\obj\Debug\net8.0\FahrtenbuchProjektCore.csproj.AssemblyReference.cache
+C:\Users\lwnsla0\source\repos\Fahrtenbuch\FahrtenbuchProjektCore\obj\Debug\net8.0\FahrtenbuchProjektCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lwnsla0\source\repos\Fahrtenbuch\FahrtenbuchProjektCore\obj\Debug\net8.0\FahrtenbuchProjektCore.AssemblyInfoInputs.cache
+C:\Users\lwnsla0\source\repos\Fahrtenbuch\FahrtenbuchProjektCore\obj\Debug\net8.0\FahrtenbuchProjektCore.AssemblyInfo.cs
+C:\Users\lwnsla0\source\repos\Fahrtenbuch\FahrtenbuchProjektCore\obj\Debug\net8.0\FahrtenbuchProjektCore.csproj.CoreCompileInputs.cache
+C:\Users\lwnsla0\source\repos\Fahrtenbuch\FahrtenbuchProjektCore\obj\Debug\net8.0\FahrtenbuchProjektCore.sourcelink.json
+C:\Users\lwnsla0\source\repos\Fahrtenbuch\FahrtenbuchProjektCore\obj\Debug\net8.0\FahrtenbuchProjektCore.dll
+C:\Users\lwnsla0\source\repos\Fahrtenbuch\FahrtenbuchProjektCore\obj\Debug\net8.0\refint\FahrtenbuchProjektCore.dll
+C:\Users\lwnsla0\source\repos\Fahrtenbuch\FahrtenbuchProjektCore\obj\Debug\net8.0\FahrtenbuchProjektCore.pdb
+C:\Users\lwnsla0\source\repos\Fahrtenbuch\FahrtenbuchProjektCore\obj\Debug\net8.0\FahrtenbuchProjektCore.genruntimeconfig.cache
+C:\Users\lwnsla0\source\repos\Fahrtenbuch\FahrtenbuchProjektCore\obj\Debug\net8.0\ref\FahrtenbuchProjektCore.dll
