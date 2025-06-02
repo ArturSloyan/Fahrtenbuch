@@ -45,5 +45,9 @@ dotnet tool install --global dotnet-ef
     dotnet ef migrations add InitialCreate
     ```
 
+### Datenbank füttern
+
+Für das füllen der Datenbank habe ich mich für die Bogus Library entschieden.
+
 ## Benutzer Dokumentation
 
