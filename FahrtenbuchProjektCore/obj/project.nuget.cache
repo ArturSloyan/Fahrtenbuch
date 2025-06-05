@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "DTIhtVXnwk0=",
+  "dgSpecHash": "eGfl6/NV0HE=",
   "success": true,
   "projectFilePath": "C:\\Users\\lwnsla0\\source\\repos\\Fahrtenbuch\\FahrtenbuchProjektCore\\FahrtenbuchProjektCore.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\lwnsla0\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\lwnsla0\\.nuget\\packages\\bogus\\35.6.3\\bogus.35.6.3.nupkg.sha512",
     "C:\\Users\\lwnsla0\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\lwnsla0\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

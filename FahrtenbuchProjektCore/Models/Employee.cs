@@ -14,5 +14,7 @@ namespace FahrtenbuchProjektCore.Models
         public string Password { get; set; }
         [Required, StringLength(50)]
         public string Email { get; set; }
+
+        public ICollection<Journey> Journeys { get; set; }
     }
 }

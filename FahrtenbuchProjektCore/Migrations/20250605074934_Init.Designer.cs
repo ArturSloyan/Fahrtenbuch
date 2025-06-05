@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FahrtenbuchProjektCore.Migrations
 {
     [DbContext(typeof(JourneybookContext))]
-    [Migration("20250522080759_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250605074934_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -122,13 +122,13 @@ namespace FahrtenbuchProjektCore.Migrations
             modelBuilder.Entity("FahrtenbuchProjektCore.Models.Journey", b =>
                 {
                     b.HasOne("FahrtenbuchProjektCore.Models.CompanyCar", "CompanyCar")
-                        .WithMany()
+                        .WithMany("Journeys")
                         .HasForeignKey("CompanyCarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("FahrtenbuchProjektCore.Models.Employee", "Employee")
-                        .WithMany()
+                        .WithMany("Journeys")
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -136,6 +136,16 @@ namespace FahrtenbuchProjektCore.Migrations
                     b.Navigation("CompanyCar");
 
                     b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("FahrtenbuchProjektCore.Models.CompanyCar", b =>
+                {
+                    b.Navigation("Journeys");
+                });
+
+            modelBuilder.Entity("FahrtenbuchProjektCore.Models.Employee", b =>
+                {
+                    b.Navigation("Journeys");
                 });
 #pragma warning restore 612, 618
         }

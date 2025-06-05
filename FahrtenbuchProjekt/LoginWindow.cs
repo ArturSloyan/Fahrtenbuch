@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FahrtenbuchProjektCore.DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,8 @@ namespace FahrtenbuchProjekt
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            if (textBoxUsername.Text == "User" && textBoxPassword.Text == "User")
+            var isLoginSuccessful = LoginAccessLayer.Login(textBoxEmail.Text, textBoxPassword.Text);
+            if (isLoginSuccessful)
             {
                 new MainWindow().Show();
                 this.Hide();
@@ -27,9 +29,9 @@ namespace FahrtenbuchProjekt
             else
             {
                 MessageBox.Show("Login failed. Username or password is invalid!");
-                textBoxUsername.Clear();
+                textBoxEmail.Clear();
                 textBoxPassword.Clear();
-                textBoxUsername.Focus();
+                textBoxEmail.Focus();
             }
         }
 

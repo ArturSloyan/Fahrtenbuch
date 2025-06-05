@@ -30,7 +30,7 @@
         {
             label1 = new Label();
             label2 = new Label();
-            textBoxUsername = new TextBox();
+            textBoxEmail = new TextBox();
             textBoxPassword = new TextBox();
             label3 = new Label();
             buttonLogin = new Button();
@@ -53,20 +53,20 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 20F);
-            label2.Location = new Point(503, 344);
+            label2.Location = new Point(615, 345);
             label2.Name = "label2";
-            label2.Size = new Size(192, 37);
+            label2.Size = new Size(88, 37);
             label2.TabIndex = 1;
-            label2.Text = "Benutzername:";
+            label2.Text = "Email:";
             // 
-            // textBoxUsername
+            // textBoxEmail
             // 
-            textBoxUsername.Font = new Font("Segoe UI", 20F);
-            textBoxUsername.Location = new Point(729, 342);
-            textBoxUsername.Margin = new Padding(3, 2, 3, 2);
-            textBoxUsername.Name = "textBoxUsername";
-            textBoxUsername.Size = new Size(419, 43);
-            textBoxUsername.TabIndex = 2;
+            textBoxEmail.Font = new Font("Segoe UI", 20F);
+            textBoxEmail.Location = new Point(729, 342);
+            textBoxEmail.Margin = new Padding(3, 2, 3, 2);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(419, 43);
+            textBoxEmail.TabIndex = 2;
             // 
             // textBoxPassword
             // 
@@ -121,7 +121,7 @@
             Controls.Add(buttonLogin);
             Controls.Add(textBoxPassword);
             Controls.Add(label3);
-            Controls.Add(textBoxUsername);
+            Controls.Add(textBoxEmail);
             Controls.Add(label2);
             Controls.Add(label1);
             Margin = new Padding(3, 2, 3, 2);
@@ -136,7 +136,7 @@
 
         private Label label1;
         private Label label2;
-        private TextBox textBoxUsername;
+        private TextBox textBoxEmail;
         private TextBox textBoxPassword;
         private Label label3;
         private Button buttonLogin;

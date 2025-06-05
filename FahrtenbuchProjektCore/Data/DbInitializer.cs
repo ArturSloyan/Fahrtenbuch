@@ -16,7 +16,7 @@ namespace FahrtenbuchProjektCore.Data
             var employeeFaker = new Faker<Employee>()
                 .RuleFor(e => e.Firstname, f => f.Name.FirstName())
                 .RuleFor(e => e.Lastname, f => f.Name.LastName())
-                .RuleFor(e => e.Password, f => f.Internet.Password())
+                .RuleFor(e => e.Password, f => BCrypt.Net.BCrypt.HashPassword(f.Internet.Password()))
                 .RuleFor(e => e.Email, f => f.Internet.Email());
 
             var employees = employeeFaker.Generate(100);

@@ -12,6 +12,8 @@ namespace FahrtenbuchProjektCore.Models
         public CarType CarType { get; set; }
         [Required, StringLength(10)]
         public string LicencePlate { get; set; }
+
+        public ICollection<Journey> Journeys { get; set; }
     }
 
     // IF YOU CHANGE SOMETHING HERE CONSIDER TO DO SO IN THE DATABASE AND IN THE DATAANNOTATION OF PROPERTY "CarType"
