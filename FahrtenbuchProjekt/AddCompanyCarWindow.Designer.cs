@@ -31,12 +31,12 @@
             label1 = new Label();
             textBox1 = new TextBox();
             label2 = new Label();
-            textBox2 = new TextBox();
             label3 = new Label();
             textBox3 = new TextBox();
             label4 = new Label();
             button1 = new Button();
             button2 = new Button();
+            comboBox1 = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -64,13 +64,6 @@
             label2.Size = new Size(84, 15);
             label2.TabIndex = 2;
             label2.Text = "Kennzeichnen:";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(125, 164);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(214, 23);
-            textBox2.TabIndex = 1;
             // 
             // label3
             // 
@@ -115,18 +108,26 @@
             button2.Text = "Speichern";
             button2.UseVisualStyleBackColor = true;
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(125, 164);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(214, 23);
+            comboBox1.TabIndex = 5;
+            // 
             // AddCompanyCarWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(382, 327);
+            Controls.Add(comboBox1);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(textBox3);
-            Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(label1);
             Name = "AddCompanyCarWindow";
@@ -141,11 +142,11 @@
         private Label label1;
         private TextBox textBox1;
         private Label label2;
-        private TextBox textBox2;
         private Label label3;
         private TextBox textBox3;
         private Label label4;
         private Button button1;
         private Button button2;
+        private ComboBox comboBox1;
     }
 }

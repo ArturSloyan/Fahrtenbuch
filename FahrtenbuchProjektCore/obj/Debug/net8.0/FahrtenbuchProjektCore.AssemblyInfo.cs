@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FahrtenbuchProjektCore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+894ef57b1afd3893633c0d59cfbb17a353c20df4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bd653eb362dfc11698605b44a14ed98b904a9b1b")]
 [assembly: System.Reflection.AssemblyProductAttribute("FahrtenbuchProjektCore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FahrtenbuchProjektCore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

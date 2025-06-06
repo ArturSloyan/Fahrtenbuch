@@ -28,30 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dataGridViewJourneys = new DataGridView();
             buttonAddJourney = new Button();
             buttonEditJourney = new Button();
             buttonDeleteJourney = new Button();
             buttonAddCompanyCar = new Button();
-            dataGridView2 = new DataGridView();
+            dataGridViewCompanyCars = new DataGridView();
             label2 = new Label();
             buttonLogout = new Button();
             menuStrip1 = new MenuStrip();
             mitarbeiterToolStripMenuItem = new ToolStripMenuItem();
             anlegenToolStripMenuItem = new ToolStripMenuItem();
             ansichtAlleAnzeigenToolStripMenuItem = new ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewJourneys).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewCompanyCars).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewJourneys
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(274, 79);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1014, 567);
-            dataGridView1.TabIndex = 1;
+            dataGridViewJourneys.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewJourneys.Location = new Point(274, 79);
+            dataGridViewJourneys.MultiSelect = false;
+            dataGridViewJourneys.Name = "dataGridViewJourneys";
+            dataGridViewJourneys.ReadOnly = true;
+            dataGridViewJourneys.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewJourneys.Size = new Size(1014, 567);
+            dataGridViewJourneys.TabIndex = 1;
             // 
             // buttonAddJourney
             // 
@@ -91,13 +94,16 @@
             buttonAddCompanyCar.UseVisualStyleBackColor = true;
             buttonAddCompanyCar.Click += buttonAddCompanyCar_Click;
             // 
-            // dataGridView2
+            // dataGridViewCompanyCars
             // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(12, 79);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.Size = new Size(240, 567);
-            dataGridView2.TabIndex = 7;
+            dataGridViewCompanyCars.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCompanyCars.Location = new Point(12, 79);
+            dataGridViewCompanyCars.MultiSelect = false;
+            dataGridViewCompanyCars.Name = "dataGridViewCompanyCars";
+            dataGridViewCompanyCars.ReadOnly = true;
+            dataGridViewCompanyCars.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewCompanyCars.Size = new Size(240, 567);
+            dataGridViewCompanyCars.TabIndex = 7;
             // 
             // label2
             // 
@@ -154,12 +160,12 @@
             BackColor = Color.White;
             ClientSize = new Size(1300, 686);
             Controls.Add(label2);
-            Controls.Add(dataGridView2);
+            Controls.Add(dataGridViewCompanyCars);
             Controls.Add(buttonAddCompanyCar);
             Controls.Add(buttonDeleteJourney);
             Controls.Add(buttonEditJourney);
             Controls.Add(buttonAddJourney);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewJourneys);
             Controls.Add(buttonLogout);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -167,8 +173,8 @@
             Name = "MainWindow";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainWindow";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewJourneys).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewCompanyCars).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -176,12 +182,12 @@
         }
 
         #endregion
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewJourneys;
         private Button buttonAddJourney;
         private Button buttonEditJourney;
         private Button buttonDeleteJourney;
         private Button buttonAddCompanyCar;
-        private DataGridView dataGridView2;
+        private DataGridView dataGridViewCompanyCars;
         private Label label2;
         private Button buttonLogout;
         private MenuStrip menuStrip1;

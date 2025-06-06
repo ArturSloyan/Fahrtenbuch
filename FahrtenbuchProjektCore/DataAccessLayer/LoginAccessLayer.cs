@@ -1,4 +1,5 @@
 ﻿using FahrtenbuchProjektCore.Context;
+using FahrtenbuchProjektCore.Models;
 
 namespace FahrtenbuchProjektCore.DataAccessLayer
 {
@@ -9,6 +10,11 @@ namespace FahrtenbuchProjektCore.DataAccessLayer
         public LoginAccessLayer(JourneybookContext context)
         {
             _context = context;
+        }
+
+        public Employee GetLoggedInEmployee(string email)
+        {
+            return _context.Employees.FirstOrDefault(e => e.Email == email);
         }
 
         public bool Login(string email, string password)

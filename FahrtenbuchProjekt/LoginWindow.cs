@@ -1,4 +1,5 @@
-﻿using FahrtenbuchProjektCore.DataAccessLayer;
+﻿using FahrtenbuchProjektCore.Context;
+using FahrtenbuchProjektCore.DataAccessLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,10 +21,12 @@ namespace FahrtenbuchProjekt
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            var isLoginSuccessful = LoginAccessLayer.Login(textBoxEmail.Text, textBoxPassword.Text);
-            if (isLoginSuccessful)
+            var context = new JourneybookContext();
+            var loginAccessLayer = new LoginAccessLayer(context);
+
+            if (loginAccessLayer.Login(textBoxEmail.Text, textBoxPassword.Text))
             {
-                new MainWindow().Show();
+                new MainWindow(loginAccessLayer.GetLoggedInEmployee(textBoxEmail.Text)).Show();
                 this.Hide();
             }
             else

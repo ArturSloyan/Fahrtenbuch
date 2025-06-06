@@ -20,6 +20,16 @@ namespace FahrtenbuchProjektCore.Data
                 .RuleFor(e => e.Email, f => f.Internet.Email());
 
             var employees = employeeFaker.Generate(100);
+
+            // test user
+            employees.Add(new Employee()
+            {
+                Firstname = "Artur",
+                Lastname = "Sloyan",
+                Email = "artur.sloyan@liebherr.com",
+                Password = BCrypt.Net.BCrypt.HashPassword("test")
+            });
+
             context.Employees.AddRange(employees);
 
             var companyCarFaker = new Faker<CompanyCar>()
@@ -38,10 +48,10 @@ namespace FahrtenbuchProjektCore.Data
                 .RuleFor(j => j.PurposeOfTheJourney, f => f.Lorem.Sentence(5))
                 .RuleFor(j => j.KmDistanceDeparture, f => f.Random.Int(0, 100000))
                 .RuleFor(j => j.KmDistanceArrival, (f, j) => j.KmDistanceDeparture + f.Random.Int(1, 500))
-                .RuleFor(j => j.Employee, f => f.PickRandom(employees))
-                .RuleFor(j => j.CompanyCar, f => f.PickRandom(companyCars));
+                .RuleFor(j => j.Employee, f => f.PickRandom(employees.ToList()))
+                .RuleFor(j => j.CompanyCar, f => f.PickRandom(companyCars.ToList()));
 
-            var journeys = journeyFaker.Generate(60);
+            var journeys = journeyFaker.Generate(6000);
             context.Journeys.AddRange(journeys);
 
             context.SaveChanges();
