@@ -28,37 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            labelTitle = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            textBox5 = new TextBox();
+            textBoxReason = new TextBox();
             label7 = new Label();
             label8 = new Label();
-            button1 = new Button();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
-            dateTimePicker3 = new DateTimePicker();
-            numericUpDown1 = new NumericUpDown();
-            numericUpDown2 = new NumericUpDown();
-            numericUpDown3 = new NumericUpDown();
-            button2 = new Button();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
+            buttonCancel = new Button();
+            dateTimePickerDateOfJourney = new DateTimePicker();
+            dateTimePickerStartJourney = new DateTimePicker();
+            dateTimePickerEndJourney = new DateTimePicker();
+            numericUpDownTravelRoute = new NumericUpDown();
+            numericUpDownKmDistanceDeparture = new NumericUpDown();
+            numericUpDownKmDistanceArrival = new NumericUpDown();
+            buttonSave = new Button();
+            label1 = new Label();
+            comboBoxCompanyCar = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownTravelRoute).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownKmDistanceDeparture).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownKmDistanceArrival).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // labelTitle
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14F);
-            label1.Location = new Point(162, 29);
-            label1.Name = "label1";
-            label1.Size = new Size(167, 25);
-            label1.TabIndex = 0;
-            label1.Text = "[Fahrt hinzufügen]";
+            labelTitle.AutoSize = true;
+            labelTitle.Font = new Font("Segoe UI", 14F);
+            labelTitle.Location = new Point(162, 29);
+            labelTitle.Name = "labelTitle";
+            labelTitle.Size = new Size(167, 25);
+            labelTitle.TabIndex = 0;
+            labelTitle.Text = "[Fahrt hinzufügen]";
             // 
             // label2
             // 
@@ -105,12 +107,12 @@
             label6.TabIndex = 1;
             label6.Text = "Zweck der Fahrt:";
             // 
-            // textBox5
+            // textBoxReason
             // 
-            textBox5.Location = new Point(133, 219);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(308, 23);
-            textBox5.TabIndex = 2;
+            textBoxReason.Location = new Point(133, 219);
+            textBoxReason.Name = "textBoxReason";
+            textBoxReason.Size = new Size(308, 23);
+            textBoxReason.TabIndex = 2;
             // 
             // label7
             // 
@@ -124,122 +126,145 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(18, 280);
+            label8.Location = new Point(18, 282);
             label8.Name = "label8";
             label8.Size = new Size(109, 15);
             label8.TabIndex = 1;
             label8.Text = "KM-Stand Ankunft:";
             // 
-            // button1
+            // buttonCancel
             // 
-            button1.Location = new Point(12, 327);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 3;
-            button1.Text = "Abbrechen";
-            button1.UseVisualStyleBackColor = true;
+            buttonCancel.Location = new Point(12, 371);
+            buttonCancel.Name = "buttonCancel";
+            buttonCancel.Size = new Size(75, 23);
+            buttonCancel.TabIndex = 3;
+            buttonCancel.Text = "Abbrechen";
+            buttonCancel.UseVisualStyleBackColor = true;
+            buttonCancel.Click += buttonCancel_Click;
             // 
-            // dateTimePicker1
+            // dateTimePickerDateOfJourney
             // 
-            dateTimePicker1.Location = new Point(133, 103);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(308, 23);
-            dateTimePicker1.TabIndex = 4;
+            dateTimePickerDateOfJourney.Location = new Point(133, 103);
+            dateTimePickerDateOfJourney.Name = "dateTimePickerDateOfJourney";
+            dateTimePickerDateOfJourney.Size = new Size(308, 23);
+            dateTimePickerDateOfJourney.TabIndex = 4;
             // 
-            // dateTimePicker2
+            // dateTimePickerStartJourney
             // 
-            dateTimePicker2.Location = new Point(133, 132);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(308, 23);
-            dateTimePicker2.TabIndex = 4;
+            dateTimePickerStartJourney.Location = new Point(133, 132);
+            dateTimePickerStartJourney.Name = "dateTimePickerStartJourney";
+            dateTimePickerStartJourney.Size = new Size(308, 23);
+            dateTimePickerStartJourney.TabIndex = 4;
             // 
-            // dateTimePicker3
+            // dateTimePickerEndJourney
             // 
-            dateTimePicker3.Location = new Point(133, 161);
-            dateTimePicker3.Name = "dateTimePicker3";
-            dateTimePicker3.Size = new Size(308, 23);
-            dateTimePicker3.TabIndex = 4;
+            dateTimePickerEndJourney.Location = new Point(133, 161);
+            dateTimePickerEndJourney.Name = "dateTimePickerEndJourney";
+            dateTimePickerEndJourney.Size = new Size(308, 23);
+            dateTimePickerEndJourney.TabIndex = 4;
             // 
-            // numericUpDown1
+            // numericUpDownTravelRoute
             // 
-            numericUpDown1.Location = new Point(133, 191);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(308, 23);
-            numericUpDown1.TabIndex = 5;
+            numericUpDownTravelRoute.Location = new Point(133, 191);
+            numericUpDownTravelRoute.Name = "numericUpDownTravelRoute";
+            numericUpDownTravelRoute.Size = new Size(308, 23);
+            numericUpDownTravelRoute.TabIndex = 5;
             // 
-            // numericUpDown2
+            // numericUpDownKmDistanceDeparture
             // 
-            numericUpDown2.Location = new Point(133, 250);
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(308, 23);
-            numericUpDown2.TabIndex = 5;
+            numericUpDownKmDistanceDeparture.Location = new Point(133, 250);
+            numericUpDownKmDistanceDeparture.Name = "numericUpDownKmDistanceDeparture";
+            numericUpDownKmDistanceDeparture.Size = new Size(308, 23);
+            numericUpDownKmDistanceDeparture.TabIndex = 5;
             // 
-            // numericUpDown3
+            // numericUpDownKmDistanceArrival
             // 
-            numericUpDown3.Location = new Point(133, 280);
-            numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(308, 23);
-            numericUpDown3.TabIndex = 5;
+            numericUpDownKmDistanceArrival.Location = new Point(133, 280);
+            numericUpDownKmDistanceArrival.Name = "numericUpDownKmDistanceArrival";
+            numericUpDownKmDistanceArrival.Size = new Size(308, 23);
+            numericUpDownKmDistanceArrival.TabIndex = 5;
             // 
-            // button2
+            // buttonSave
             // 
-            button2.Location = new Point(383, 327);
-            button2.Name = "button2";
-            button2.Size = new Size(92, 23);
-            button2.TabIndex = 3;
-            button2.Text = "Speichern";
-            button2.UseVisualStyleBackColor = true;
+            buttonSave.Location = new Point(383, 371);
+            buttonSave.Name = "buttonSave";
+            buttonSave.Size = new Size(92, 23);
+            buttonSave.TabIndex = 3;
+            buttonSave.Text = "Speichern";
+            buttonSave.UseVisualStyleBackColor = true;
+            buttonSave.Click += buttonSave_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(53, 311);
+            label1.Name = "label1";
+            label1.Size = new Size(74, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Firmen-Pkw:";
+            // 
+            // comboBoxCompanyCar
+            // 
+            comboBoxCompanyCar.FormattingEnabled = true;
+            comboBoxCompanyCar.Location = new Point(133, 308);
+            comboBoxCompanyCar.Name = "comboBoxCompanyCar";
+            comboBoxCompanyCar.Size = new Size(308, 23);
+            comboBoxCompanyCar.TabIndex = 6;
             // 
             // AddOrEditJourneyWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(487, 368);
-            Controls.Add(numericUpDown3);
-            Controls.Add(numericUpDown2);
-            Controls.Add(numericUpDown1);
-            Controls.Add(dateTimePicker3);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            ClientSize = new Size(487, 406);
+            Controls.Add(comboBoxCompanyCar);
+            Controls.Add(numericUpDownKmDistanceArrival);
+            Controls.Add(numericUpDownKmDistanceDeparture);
+            Controls.Add(numericUpDownTravelRoute);
+            Controls.Add(dateTimePickerEndJourney);
+            Controls.Add(dateTimePickerStartJourney);
+            Controls.Add(dateTimePickerDateOfJourney);
+            Controls.Add(buttonSave);
+            Controls.Add(label1);
+            Controls.Add(buttonCancel);
             Controls.Add(label8);
             Controls.Add(label7);
-            Controls.Add(textBox5);
+            Controls.Add(textBoxReason);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(labelTitle);
             Name = "AddOrEditJourneyWindow";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AddCompanyCarWindow";
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownTravelRoute).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownKmDistanceDeparture).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownKmDistanceArrival).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private Label labelTitle;
         private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
         private Label label6;
-        private TextBox textBox5;
+        private TextBox textBoxReason;
         private Label label7;
         private Label label8;
-        private Button button1;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
-        private DateTimePicker dateTimePicker3;
-        private NumericUpDown numericUpDown1;
-        private NumericUpDown numericUpDown2;
-        private NumericUpDown numericUpDown3;
-        private Button button2;
+        private Button buttonCancel;
+        private DateTimePicker dateTimePickerDateOfJourney;
+        private DateTimePicker dateTimePickerStartJourney;
+        private DateTimePicker dateTimePickerEndJourney;
+        private NumericUpDown numericUpDownTravelRoute;
+        private NumericUpDown numericUpDownKmDistanceDeparture;
+        private NumericUpDown numericUpDownKmDistanceArrival;
+        private Button buttonSave;
+        private Label label1;
+        private ComboBox comboBoxCompanyCar;
     }
 }

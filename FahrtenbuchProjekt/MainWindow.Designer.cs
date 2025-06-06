@@ -40,6 +40,7 @@
             mitarbeiterToolStripMenuItem = new ToolStripMenuItem();
             anlegenToolStripMenuItem = new ToolStripMenuItem();
             ansichtAlleAnzeigenToolStripMenuItem = new ToolStripMenuItem();
+            buttonShowAllJourneys = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewJourneys).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCompanyCars).BeginInit();
             menuStrip1.SuspendLayout();
@@ -74,6 +75,7 @@
             buttonEditJourney.TabIndex = 4;
             buttonEditJourney.Text = "Ändern";
             buttonEditJourney.UseVisualStyleBackColor = true;
+            buttonEditJourney.Click += buttonEditJourney_Click;
             // 
             // buttonDeleteJourney
             // 
@@ -83,6 +85,7 @@
             buttonDeleteJourney.TabIndex = 5;
             buttonDeleteJourney.Text = "Löschen";
             buttonDeleteJourney.UseVisualStyleBackColor = true;
+            buttonDeleteJourney.Click += buttonDeleteJourney_Click;
             // 
             // buttonAddCompanyCar
             // 
@@ -104,6 +107,7 @@
             dataGridViewCompanyCars.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewCompanyCars.Size = new Size(240, 567);
             dataGridViewCompanyCars.TabIndex = 7;
+            dataGridViewCompanyCars.SelectionChanged += dataGridViewCompanyCars_SelectionChanged;
             // 
             // label2
             // 
@@ -153,6 +157,16 @@
             ansichtAlleAnzeigenToolStripMenuItem.Size = new Size(194, 22);
             ansichtAlleAnzeigenToolStripMenuItem.Text = "Ansicht alle anzeigen...";
             // 
+            // buttonShowAllJourneys
+            // 
+            buttonShowAllJourneys.Location = new Point(274, 652);
+            buttonShowAllJourneys.Name = "buttonShowAllJourneys";
+            buttonShowAllJourneys.Size = new Size(149, 23);
+            buttonShowAllJourneys.TabIndex = 5;
+            buttonShowAllJourneys.Text = "Alle Fahrten anzeigen";
+            buttonShowAllJourneys.UseVisualStyleBackColor = true;
+            buttonShowAllJourneys.Click += buttonShowAllJourneys_Click;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -162,6 +176,7 @@
             Controls.Add(label2);
             Controls.Add(dataGridViewCompanyCars);
             Controls.Add(buttonAddCompanyCar);
+            Controls.Add(buttonShowAllJourneys);
             Controls.Add(buttonDeleteJourney);
             Controls.Add(buttonEditJourney);
             Controls.Add(buttonAddJourney);
@@ -173,6 +188,7 @@
             Name = "MainWindow";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainWindow";
+            Load += MainWindow_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewJourneys).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCompanyCars).EndInit();
             menuStrip1.ResumeLayout(false);
@@ -194,5 +210,6 @@
         private ToolStripMenuItem mitarbeiterToolStripMenuItem;
         private ToolStripMenuItem anlegenToolStripMenuItem;
         private ToolStripMenuItem ansichtAlleAnzeigenToolStripMenuItem;
+        private Button buttonShowAllJourneys;
     }
 }

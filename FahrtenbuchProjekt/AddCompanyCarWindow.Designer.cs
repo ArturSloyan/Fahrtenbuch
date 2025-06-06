@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox1 = new TextBox();
+            textBoxLicencePlate = new TextBox();
             label2 = new Label();
             label3 = new Label();
-            textBox3 = new TextBox();
+            textBoxBrand = new TextBox();
             label4 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            comboBox1 = new ComboBox();
+            buttonCancel = new Button();
+            buttonSave = new Button();
+            comboBoxCarType = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -49,12 +49,12 @@
             label1.TabIndex = 0;
             label1.Text = "Firmen-Pkw hinzufügen";
             // 
-            // textBox1
+            // textBoxLicencePlate
             // 
-            textBox1.Location = new Point(125, 193);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(214, 23);
-            textBox1.TabIndex = 1;
+            textBoxLicencePlate.Location = new Point(125, 193);
+            textBoxLicencePlate.Name = "textBoxLicencePlate";
+            textBoxLicencePlate.Size = new Size(214, 23);
+            textBoxLicencePlate.TabIndex = 1;
             // 
             // label2
             // 
@@ -74,12 +74,12 @@
             label3.TabIndex = 2;
             label3.Text = "Type:";
             // 
-            // textBox3
+            // textBoxBrand
             // 
-            textBox3.Location = new Point(125, 135);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(214, 23);
-            textBox3.TabIndex = 1;
+            textBoxBrand.Location = new Point(125, 135);
+            textBoxBrand.Name = "textBoxBrand";
+            textBoxBrand.Size = new Size(214, 23);
+            textBoxBrand.TabIndex = 1;
             // 
             // label4
             // 
@@ -90,45 +90,47 @@
             label4.TabIndex = 2;
             label4.Text = "Marke:";
             // 
-            // button1
+            // buttonCancel
             // 
-            button1.Location = new Point(12, 292);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 3;
-            button1.Text = "Abbrechen";
-            button1.UseVisualStyleBackColor = true;
+            buttonCancel.Location = new Point(12, 292);
+            buttonCancel.Name = "buttonCancel";
+            buttonCancel.Size = new Size(75, 23);
+            buttonCancel.TabIndex = 3;
+            buttonCancel.Text = "Abbrechen";
+            buttonCancel.UseVisualStyleBackColor = true;
+            buttonCancel.Click += buttonCancel_Click;
             // 
-            // button2
+            // buttonSave
             // 
-            button2.Location = new Point(295, 292);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 4;
-            button2.Text = "Speichern";
-            button2.UseVisualStyleBackColor = true;
+            buttonSave.Location = new Point(295, 292);
+            buttonSave.Name = "buttonSave";
+            buttonSave.Size = new Size(75, 23);
+            buttonSave.TabIndex = 4;
+            buttonSave.Text = "Speichern";
+            buttonSave.UseVisualStyleBackColor = true;
+            buttonSave.Click += buttonSave_Click;
             // 
-            // comboBox1
+            // comboBoxCarType
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(125, 164);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(214, 23);
-            comboBox1.TabIndex = 5;
+            comboBoxCarType.FormattingEnabled = true;
+            comboBoxCarType.Location = new Point(125, 164);
+            comboBoxCarType.Name = "comboBoxCarType";
+            comboBoxCarType.Size = new Size(214, 23);
+            comboBoxCarType.TabIndex = 5;
             // 
             // AddCompanyCarWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(382, 327);
-            Controls.Add(comboBox1);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(comboBoxCarType);
+            Controls.Add(buttonSave);
+            Controls.Add(buttonCancel);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(textBox3);
-            Controls.Add(textBox1);
+            Controls.Add(textBoxBrand);
+            Controls.Add(textBoxLicencePlate);
             Controls.Add(label1);
             Name = "AddCompanyCarWindow";
             StartPosition = FormStartPosition.CenterScreen;
@@ -140,13 +142,13 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
+        private TextBox textBoxLicencePlate;
         private Label label2;
         private Label label3;
-        private TextBox textBox3;
+        private TextBox textBoxBrand;
         private Label label4;
-        private Button button1;
-        private Button button2;
-        private ComboBox comboBox1;
+        private Button buttonCancel;
+        private Button buttonSave;
+        private ComboBox comboBoxCarType;
     }
 }
