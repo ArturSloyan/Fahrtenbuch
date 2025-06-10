@@ -1,15 +1,5 @@
 ﻿using FahrtenbuchProjektCore.Context;
 using FahrtenbuchProjektCore.Models;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace FahrtenbuchProjekt
 {
@@ -32,9 +22,15 @@ namespace FahrtenbuchProjekt
             else
             {
                 labelTitle.Text = "Fahrt ändern";
+                dateTimePickerDateOfJourney.Value = journey.JourneyDate;
+                dateTimePickerStartJourney.Value = journey.TimeStampStart;
+                dateTimePickerEndJourney.Value = journey.TimeStampEnd;
+                textBoxTravelRoute.Text = journey.TravelRoute.ToString();
+                textBoxReason.Text = journey.PurposeOfTheJourney;
+                textBoxKmDistanceDeparture.Text = journey.KmDistanceDeparture.ToString();
+                textBoxKmDistanceArrival.Text = journey.KmDistanceArrival.ToString();
+                comboBoxCompanyCar.SelectedItem = journey.CompanyCar;
             }
-
-
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -49,16 +45,10 @@ namespace FahrtenbuchProjekt
             var journeyDate = dateTimePickerDateOfJourney.Value.Date;
             var start = dateTimePickerStartJourney.Value;
             var end = dateTimePickerEndJourney.Value;
-            var travelRoute = (int)numericUpDownTravelRoute.Value;
+            var travelRoute = Convert.ToInt32(textBoxTravelRoute.Text);
             var purpose = textBoxReason.Text.Trim();
-            var kmDeparture = (int)numericUpDownKmDistanceDeparture.Value;
-            var kmArrival = (int)numericUpDownKmDistanceArrival.Value;
-
-            if (string.IsNullOrWhiteSpace(purpose) || kmArrival <= kmDeparture)
-            {
-                MessageBox.Show("Bitte gültige Daten eingeben.");
-                return;
-            }
+            var kmDeparture = Convert.ToInt32(textBoxKmDistanceDeparture.Text);
+            var kmArrival = Convert.ToInt32(textBoxKmDistanceArrival.Text);
 
             if (_editingJourney == null)
             {
@@ -86,11 +76,19 @@ namespace FahrtenbuchProjekt
                 _editingJourney.PurposeOfTheJourney = purpose;
                 _editingJourney.KmDistanceDeparture = kmDeparture;
                 _editingJourney.KmDistanceArrival = kmArrival;
-                _editingJourney.
+                //_editingJourney.
             }
 
             context.SaveChanges();
             Close();
+        }
+
+        private void textBoxTravelRoute_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

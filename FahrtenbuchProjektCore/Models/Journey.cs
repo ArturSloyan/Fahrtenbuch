@@ -12,7 +12,7 @@ namespace FahrtenbuchProjektCore.Models
         public DateTime TimeStampStart { get; set; }
         [Required, DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{HH:mm:ss}")]
         public DateTime TimeStampEnd { get; set; }
-        [Required, Range(0, int.MaxValue, ErrorMessage = "Value should be greater than or equal to 0")]
+        [Required]
         public int TravelRoute { get; set; }
         [Required, StringLength(500)]
         public string PurposeOfTheJourney { get; set; }

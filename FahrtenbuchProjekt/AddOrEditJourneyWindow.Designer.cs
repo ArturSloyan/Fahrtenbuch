@@ -41,15 +41,12 @@
             dateTimePickerDateOfJourney = new DateTimePicker();
             dateTimePickerStartJourney = new DateTimePicker();
             dateTimePickerEndJourney = new DateTimePicker();
-            numericUpDownTravelRoute = new NumericUpDown();
-            numericUpDownKmDistanceDeparture = new NumericUpDown();
-            numericUpDownKmDistanceArrival = new NumericUpDown();
             buttonSave = new Button();
             label1 = new Label();
             comboBoxCompanyCar = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownTravelRoute).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownKmDistanceDeparture).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownKmDistanceArrival).BeginInit();
+            textBoxTravelRoute = new TextBox();
+            textBoxKmDistanceDeparture = new TextBox();
+            textBoxKmDistanceArrival = new TextBox();
             SuspendLayout();
             // 
             // labelTitle
@@ -163,27 +160,6 @@
             dateTimePickerEndJourney.Size = new Size(308, 23);
             dateTimePickerEndJourney.TabIndex = 4;
             // 
-            // numericUpDownTravelRoute
-            // 
-            numericUpDownTravelRoute.Location = new Point(133, 191);
-            numericUpDownTravelRoute.Name = "numericUpDownTravelRoute";
-            numericUpDownTravelRoute.Size = new Size(308, 23);
-            numericUpDownTravelRoute.TabIndex = 5;
-            // 
-            // numericUpDownKmDistanceDeparture
-            // 
-            numericUpDownKmDistanceDeparture.Location = new Point(133, 250);
-            numericUpDownKmDistanceDeparture.Name = "numericUpDownKmDistanceDeparture";
-            numericUpDownKmDistanceDeparture.Size = new Size(308, 23);
-            numericUpDownKmDistanceDeparture.TabIndex = 5;
-            // 
-            // numericUpDownKmDistanceArrival
-            // 
-            numericUpDownKmDistanceArrival.Location = new Point(133, 280);
-            numericUpDownKmDistanceArrival.Name = "numericUpDownKmDistanceArrival";
-            numericUpDownKmDistanceArrival.Size = new Size(308, 23);
-            numericUpDownKmDistanceArrival.TabIndex = 5;
-            // 
             // buttonSave
             // 
             buttonSave.Location = new Point(383, 371);
@@ -211,15 +187,37 @@
             comboBoxCompanyCar.Size = new Size(308, 23);
             comboBoxCompanyCar.TabIndex = 6;
             // 
+            // textBoxTravelRoute
+            // 
+            textBoxTravelRoute.Location = new Point(133, 190);
+            textBoxTravelRoute.Name = "textBoxTravelRoute";
+            textBoxTravelRoute.Size = new Size(308, 23);
+            textBoxTravelRoute.TabIndex = 7;
+            textBoxTravelRoute.KeyPress += textBoxTravelRoute_KeyPress;
+            // 
+            // textBoxKmDistanceDeparture
+            // 
+            textBoxKmDistanceDeparture.Location = new Point(133, 248);
+            textBoxKmDistanceDeparture.Name = "textBoxKmDistanceDeparture";
+            textBoxKmDistanceDeparture.Size = new Size(308, 23);
+            textBoxKmDistanceDeparture.TabIndex = 7;
+            // 
+            // textBoxKmDistanceArrival
+            // 
+            textBoxKmDistanceArrival.Location = new Point(133, 279);
+            textBoxKmDistanceArrival.Name = "textBoxKmDistanceArrival";
+            textBoxKmDistanceArrival.Size = new Size(308, 23);
+            textBoxKmDistanceArrival.TabIndex = 7;
+            // 
             // AddOrEditJourneyWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(487, 406);
+            Controls.Add(textBoxKmDistanceArrival);
+            Controls.Add(textBoxKmDistanceDeparture);
+            Controls.Add(textBoxTravelRoute);
             Controls.Add(comboBoxCompanyCar);
-            Controls.Add(numericUpDownKmDistanceArrival);
-            Controls.Add(numericUpDownKmDistanceDeparture);
-            Controls.Add(numericUpDownTravelRoute);
             Controls.Add(dateTimePickerEndJourney);
             Controls.Add(dateTimePickerStartJourney);
             Controls.Add(dateTimePickerDateOfJourney);
@@ -237,10 +235,6 @@
             Controls.Add(labelTitle);
             Name = "AddOrEditJourneyWindow";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "AddCompanyCarWindow";
-            ((System.ComponentModel.ISupportInitialize)numericUpDownTravelRoute).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownKmDistanceDeparture).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownKmDistanceArrival).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -260,11 +254,11 @@
         private DateTimePicker dateTimePickerDateOfJourney;
         private DateTimePicker dateTimePickerStartJourney;
         private DateTimePicker dateTimePickerEndJourney;
-        private NumericUpDown numericUpDownTravelRoute;
-        private NumericUpDown numericUpDownKmDistanceDeparture;
-        private NumericUpDown numericUpDownKmDistanceArrival;
         private Button buttonSave;
         private Label label1;
         private ComboBox comboBoxCompanyCar;
+        private TextBox textBoxTravelRoute;
+        private TextBox textBoxKmDistanceDeparture;
+        private TextBox textBoxKmDistanceArrival;
     }
 }

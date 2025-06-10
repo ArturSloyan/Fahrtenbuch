@@ -187,7 +187,6 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "MainWindow";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "MainWindow";
             Load += MainWindow_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewJourneys).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCompanyCars).EndInit();

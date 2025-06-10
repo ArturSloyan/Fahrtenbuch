@@ -134,7 +134,6 @@
             Controls.Add(label1);
             Name = "AddCompanyCarWindow";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "AddCompanyCarWindow";
             ResumeLayout(false);
             PerformLayout();
         }

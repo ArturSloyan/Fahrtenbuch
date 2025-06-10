@@ -132,7 +132,6 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "AddEmployeeWindow";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "AddEmployeeWindow";
             ResumeLayout(false);
             PerformLayout();
         }
