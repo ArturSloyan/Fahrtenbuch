@@ -6,13 +6,17 @@ namespace FahrtenbuchProjektCore.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required, StringLength(50)]
+        [Required(ErrorMessage ="Firstname cannot be empty.")]
+        [StringLength(50, ErrorMessage ="Firstname cannot exceed 50 characters.")]
         public string Firstname { get; set; }
-        [Required, StringLength(50)]
+        [Required(ErrorMessage ="Lastname cannot be empty.")]
+        [StringLength(50, ErrorMessage ="Lastname cannot exceed 50 characters.")]
         public string Lastname { get; set; }
-        [Required, StringLength(50)]
+        [Required(ErrorMessage ="Password cannot be empty.")]
+        [StringLength(50, ErrorMessage ="Password cannot exceed 50 characters.")]
         public string Password { get; set; }
-        [Required, StringLength(50)]
+        [Required(ErrorMessage ="Email cannot be empty.")]
+        [StringLength(50, ErrorMessage ="Email cannot exceed 50 characters.")]
         public string Email { get; set; }
 
         public ICollection<Journey> Journeys { get; set; }

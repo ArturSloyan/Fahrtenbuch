@@ -201,6 +201,7 @@
             textBoxKmDistanceDeparture.Name = "textBoxKmDistanceDeparture";
             textBoxKmDistanceDeparture.Size = new Size(308, 23);
             textBoxKmDistanceDeparture.TabIndex = 7;
+            textBoxKmDistanceDeparture.KeyPress += textBoxKmDistanceDeparture_KeyPress;
             // 
             // textBoxKmDistanceArrival
             // 
@@ -208,6 +209,7 @@
             textBoxKmDistanceArrival.Name = "textBoxKmDistanceArrival";
             textBoxKmDistanceArrival.Size = new Size(308, 23);
             textBoxKmDistanceArrival.TabIndex = 7;
+            textBoxKmDistanceArrival.KeyPress += textBoxKmDistanceArrival_KeyPress;
             // 
             // AddOrEditJourneyWindow
             // 

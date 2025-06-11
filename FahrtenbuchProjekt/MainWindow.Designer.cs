@@ -56,6 +56,7 @@
             dataGridViewJourneys.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewJourneys.Size = new Size(1014, 567);
             dataGridViewJourneys.TabIndex = 1;
+            dataGridViewJourneys.CellFormatting += dataGridViewJourneys_CellFormatting;
             // 
             // buttonAddJourney
             // 

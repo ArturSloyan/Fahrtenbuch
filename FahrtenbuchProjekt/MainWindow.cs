@@ -1,6 +1,7 @@
 ﻿using FahrtenbuchProjektCore.Context;
 using FahrtenbuchProjektCore.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Windows.Forms;
 
 namespace FahrtenbuchProjekt
 {
@@ -50,12 +51,12 @@ namespace FahrtenbuchProjekt
 
         private void ReloadJourneys()
         {
-            dataGridViewJourneys.DataSource = null;
             dataGridViewJourneys.DataSource = _context.Journeys
                 .Include(j => j.CompanyCar)
                 .Include(j => j.Employee)
                 .Where(j => j.Employee == _loggedInEmployee)
                 .ToList();
+            dataGridViewJourneys.CellFormatting += dataGridViewJourneys_CellFormatting;
         }
 
         private void dataGridViewCompanyCars_SelectionChanged(object sender, EventArgs e)
@@ -108,14 +109,36 @@ namespace FahrtenbuchProjekt
 
         private void buttonAddJourney_Click(object sender, EventArgs e)
         {
-            new AddOrEditJourneyWindow(this, null, _loggedInEmployee).Show();
+            new AddOrEditJourneyWindow(this, null, _loggedInEmployee, _context).Show();
             this.Hide();
         }
 
         private void buttonEditJourney_Click(object sender, EventArgs e)
         {
-            new AddOrEditJourneyWindow(this, (Journey)dataGridViewJourneys.SelectedRows[0].DataBoundItem, _loggedInEmployee).Show();
+            new AddOrEditJourneyWindow(this, (Journey)dataGridViewJourneys.SelectedRows[0].DataBoundItem, _loggedInEmployee, _context).Show();
             this.Hide();
+        }
+
+        private void dataGridViewJourneys_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridViewJourneys.Columns[e.ColumnIndex].Name == "TimeStampStart")
+            {
+                if (e.Value != null)
+                {
+                    DateTime timestamp = (DateTime)e.Value;
+                    e.Value = timestamp.ToString("HH:mm");
+                    e.FormattingApplied = true;
+                }
+            }
+            if (dataGridViewJourneys.Columns[e.ColumnIndex].Name == "TimeStampEnd")
+            {
+                if (e.Value != null)
+                {
+                    DateTime timestamp = (DateTime)e.Value;
+                    e.Value = timestamp.ToString("HH:mm");
+                    e.FormattingApplied = true;
+                }
+            }
         }
     }
 }

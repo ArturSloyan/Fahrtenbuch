@@ -1,8 +1,10 @@
 ﻿using FahrtenbuchProjektCore.Context;
 using FahrtenbuchProjektCore.Models;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -30,28 +32,34 @@ namespace FahrtenbuchProjekt
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            var companyCar = new CompanyCar()
+            {
+                Brand = textBoxBrand.Text,
+                CarType = (CarType)comboBoxCarType.SelectedItem,
+                LicencePlate = textBoxLicencePlate.Text
+            };
+            List<ValidationResult> validationResults = new List<ValidationResult>();
+            bool isValid = Validator.TryValidateObject(companyCar, new ValidationContext(companyCar), validationResults, true);
+            string invalidationText =string.Empty;
 
-            if (!string.IsNullOrWhiteSpace(textBoxBrand.Text) && !string.IsNullOrWhiteSpace(textBoxLicencePlate.Text) && comboBoxCarType.SelectedItem != null)
+            if (!isValid)
+            {
+                foreach (var validationResult in validationResults)
+                {
+                    invalidationText += $"{validationResult.ErrorMessage}\r";
+                }
+
+                MessageBox.Show(invalidationText);
+            }
+            else
             {
                 var context = new JourneybookContext();
-                context.CompanyCars.Add(new CompanyCar()
-                {
-                    Brand = textBoxBrand.Text,
-                    LicencePlate = textBoxLicencePlate.Text,
-                    CarType = (CarType)comboBoxCarType.SelectedItem
-                });
+                context.CompanyCars.Add(companyCar);
                 context.SaveChanges();
 
                 _mainForm.ReloadCompanyCars();
                 _mainForm.Show();
                 this.Close();
-            }
-            else
-            {
-                textBoxBrand.Clear();
-                textBoxLicencePlate.Clear();
-                comboBoxCarType.SelectedIndex = -1;
-                textBoxBrand.Focus();
             }
         }
     }

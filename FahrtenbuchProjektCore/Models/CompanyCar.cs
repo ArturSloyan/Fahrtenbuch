@@ -6,11 +6,14 @@ namespace FahrtenbuchProjektCore.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required, StringLength(50)]
+        [Required(ErrorMessage = "Brand cannot be empty.")]
+        [StringLength(50, ErrorMessage ="Brand cannot exceed 50 characters.")]
         public string Brand { get; set; }
-        [Required, Range(0, 7, ErrorMessage = "Value should be greater than or equal to 1")]
+        [Required(ErrorMessage ="Car type cannot be empty.")]
+        [Range(0, 7, ErrorMessage = "Index can only be between 0 and 7.")]
         public CarType CarType { get; set; }
-        [Required, StringLength(10)]
+        [Required(ErrorMessage ="Licenceplate cannot be empty.")]
+        [StringLength(10, ErrorMessage ="Licenceplate cannot exceed 10 characters.")]
         public string LicencePlate { get; set; }
 
         public ICollection<Journey> Journeys { get; set; }

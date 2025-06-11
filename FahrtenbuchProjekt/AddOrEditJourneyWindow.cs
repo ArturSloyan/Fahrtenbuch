@@ -8,7 +8,7 @@ namespace FahrtenbuchProjekt
         private MainWindow _mainForm;
         private Journey? _editingJourney;
         private Employee _loggedInEmployee;
-        public AddOrEditJourneyWindow(MainWindow mainForm, Journey? journey, Employee loggedInEmployee)
+        public AddOrEditJourneyWindow(MainWindow mainForm, Journey? journey, Employee loggedInEmployee, JourneybookContext context)
         {
             InitializeComponent();
             _mainForm = mainForm;
@@ -29,7 +29,9 @@ namespace FahrtenbuchProjekt
                 textBoxReason.Text = journey.PurposeOfTheJourney;
                 textBoxKmDistanceDeparture.Text = journey.KmDistanceDeparture.ToString();
                 textBoxKmDistanceArrival.Text = journey.KmDistanceArrival.ToString();
-                comboBoxCompanyCar.SelectedItem = journey.CompanyCar;
+                comboBoxCompanyCar.DataSource = context.CompanyCars.ToList();
+                comboBoxCompanyCar.DisplayMember = "LicencePlate";
+                comboBoxCompanyCar.ValueMember = "Id";
             }
         }
 
@@ -49,6 +51,7 @@ namespace FahrtenbuchProjekt
             var purpose = textBoxReason.Text.Trim();
             var kmDeparture = Convert.ToInt32(textBoxKmDistanceDeparture.Text);
             var kmArrival = Convert.ToInt32(textBoxKmDistanceArrival.Text);
+            var companyCar = (CompanyCar)comboBoxCompanyCar.SelectedItem;
 
             if (_editingJourney == null)
             {
@@ -62,7 +65,7 @@ namespace FahrtenbuchProjekt
                     KmDistanceDeparture = kmDeparture,
                     KmDistanceArrival = kmArrival,
                     Employee = _loggedInEmployee,
-                    CompanyCar = (CompanyCar)comboBoxCompanyCar.SelectedItem
+                    CompanyCar = companyCar
                 };
 
                 context.Journeys.Add(newJourney);
@@ -84,6 +87,22 @@ namespace FahrtenbuchProjekt
         }
 
         private void textBoxTravelRoute_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxKmDistanceDeparture_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxKmDistanceArrival_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {

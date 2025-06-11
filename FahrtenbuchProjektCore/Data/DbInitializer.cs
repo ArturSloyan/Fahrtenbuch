@@ -26,7 +26,7 @@ namespace FahrtenbuchProjektCore.Data
             {
                 Firstname = "Artur",
                 Lastname = "Sloyan",
-                Email = "artur.sloyan@liebherr.com",
+                Email = "test",
                 Password = BCrypt.Net.BCrypt.HashPassword("test")
             });
 
