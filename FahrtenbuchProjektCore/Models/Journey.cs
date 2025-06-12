@@ -10,7 +10,7 @@ namespace FahrtenbuchProjektCore.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM.dd.yyyy}")]
         public DateTime JourneyDate { get; set; }
         [Required(ErrorMessage ="TimeStampStart cannot be empty.")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{HH:mm:ss}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{HH:mm}")]
         public DateTime TimeStampStart { get; set; }
         [Required(ErrorMessage ="TimeStampEnd cannot be empty.")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{HH:mm}")]
@@ -30,6 +30,9 @@ namespace FahrtenbuchProjektCore.Models
         public int KmDistanceArrival { get; set; }
 
         public Employee Employee { get; set; }
+        public int EmployeeId { get; set; }
         public CompanyCar CompanyCar { get; set; }
+        // Add a calculated property to expose the LicencePlate
+        public string LicencePlate => CompanyCar?.LicencePlate; // Safely access LicencePlate
     }
 }

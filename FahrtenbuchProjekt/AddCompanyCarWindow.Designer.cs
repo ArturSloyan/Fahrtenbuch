@@ -112,6 +112,7 @@
             // 
             // comboBoxCarType
             // 
+            comboBoxCarType.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCarType.FormattingEnabled = true;
             comboBoxCarType.Location = new Point(125, 164);
             comboBoxCarType.Name = "comboBoxCarType";

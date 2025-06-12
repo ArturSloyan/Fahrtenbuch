@@ -1,37 +1,42 @@
 ﻿using FahrtenbuchProjektCore.Context;
 using FahrtenbuchProjektCore.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.Json;
 
 namespace FahrtenbuchProjekt
 {
     public partial class AddOrEditJourneyWindow : Form
     {
         private MainWindow _mainForm;
-        private Journey? _editingJourney;
         private Employee _loggedInEmployee;
+        private JourneybookContext _context;
+        private Journey _journey;
         public AddOrEditJourneyWindow(MainWindow mainForm, Journey? journey, Employee loggedInEmployee, JourneybookContext context)
         {
             InitializeComponent();
             _mainForm = mainForm;
-            _editingJourney = journey;
             _loggedInEmployee = loggedInEmployee;
+            _context = context;
+            _journey = journey;
+            comboBoxCompanyCar.DataSource = context.CompanyCars.ToList();
+            dateTimePickerTimeStampStart.Format = DateTimePickerFormat.Time;
+            dateTimePickerTimeStampEnd.Format = DateTimePickerFormat.Time;
 
-            if (journey == null)
+            if (_journey == null)
             {
                 labelTitle.Text = "Fahrt anlegen";
             }
             else
             {
                 labelTitle.Text = "Fahrt ändern";
-                dateTimePickerDateOfJourney.Value = journey.JourneyDate;
-                dateTimePickerStartJourney.Value = journey.TimeStampStart;
-                dateTimePickerEndJourney.Value = journey.TimeStampEnd;
-                textBoxTravelRoute.Text = journey.TravelRoute.ToString();
-                textBoxReason.Text = journey.PurposeOfTheJourney;
-                textBoxKmDistanceDeparture.Text = journey.KmDistanceDeparture.ToString();
-                textBoxKmDistanceArrival.Text = journey.KmDistanceArrival.ToString();
-                comboBoxCompanyCar.DataSource = context.CompanyCars.ToList();
-                comboBoxCompanyCar.DisplayMember = "LicencePlate";
-                comboBoxCompanyCar.ValueMember = "Id";
+                dateTimePickerDateOfJourney.Value = _journey.JourneyDate;
+                dateTimePickerTimeStampStart.Value = _journey.TimeStampStart;
+                dateTimePickerTimeStampEnd.Value = _journey.TimeStampEnd;
+                textBoxTravelRoute.Text = _journey.TravelRoute.ToString();
+                textBoxReason.Text = _journey.PurposeOfTheJourney;
+                textBoxKmDistanceDeparture.Text = _journey.KmDistanceDeparture.ToString();
+                textBoxKmDistanceArrival.Text = _journey.KmDistanceArrival.ToString();
+                comboBoxCompanyCar.SelectedItem = _journey.CompanyCar;
             }
         }
 
@@ -43,17 +48,17 @@ namespace FahrtenbuchProjekt
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            var context = new JourneybookContext();
             var journeyDate = dateTimePickerDateOfJourney.Value.Date;
-            var start = dateTimePickerStartJourney.Value;
-            var end = dateTimePickerEndJourney.Value;
+            var start = dateTimePickerTimeStampStart.Value;
+            var end = dateTimePickerTimeStampEnd.Value;
+            // TODO shouldnt create error here, it should be outputed in the message box
             var travelRoute = Convert.ToInt32(textBoxTravelRoute.Text);
             var purpose = textBoxReason.Text.Trim();
             var kmDeparture = Convert.ToInt32(textBoxKmDistanceDeparture.Text);
             var kmArrival = Convert.ToInt32(textBoxKmDistanceArrival.Text);
             var companyCar = (CompanyCar)comboBoxCompanyCar.SelectedItem;
 
-            if (_editingJourney == null)
+            if (_journey == null)
             {
                 var newJourney = new Journey
                 {
@@ -64,26 +69,31 @@ namespace FahrtenbuchProjekt
                     PurposeOfTheJourney = purpose,
                     KmDistanceDeparture = kmDeparture,
                     KmDistanceArrival = kmArrival,
-                    Employee = _loggedInEmployee,
+                    EmployeeId = _loggedInEmployee.Id,
                     CompanyCar = companyCar
                 };
 
-                context.Journeys.Add(newJourney);
+                _context.Journeys.Add(newJourney);
             }
             else
             {
-                _editingJourney.JourneyDate = journeyDate;
-                _editingJourney.TimeStampStart = start;
-                _editingJourney.TimeStampEnd = end;
-                _editingJourney.TravelRoute = travelRoute;
-                _editingJourney.PurposeOfTheJourney = purpose;
-                _editingJourney.KmDistanceDeparture = kmDeparture;
-                _editingJourney.KmDistanceArrival = kmArrival;
-                //_editingJourney.
+                _journey.JourneyDate = journeyDate;
+                _journey.TimeStampStart = start;
+                _journey.TimeStampEnd = end;
+                _journey.TravelRoute = travelRoute;
+                _journey.PurposeOfTheJourney = purpose;
+                _journey.KmDistanceDeparture = kmDeparture;
+                _journey.KmDistanceArrival = kmArrival;
+                _journey.EmployeeId = _loggedInEmployee.Id;
+                _journey.CompanyCar = companyCar;
+
+                _context.Journeys.Update(_journey);
             }
 
-            context.SaveChanges();
-            Close();
+            _context.SaveChanges();
+            _mainForm.Show();
+            _mainForm.ReloadJourneys();
+            this.Close();
         }
 
         private void textBoxTravelRoute_KeyPress(object sender, KeyPressEventArgs e)

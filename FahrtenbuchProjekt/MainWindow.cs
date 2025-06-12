@@ -1,7 +1,6 @@
 ﻿using FahrtenbuchProjektCore.Context;
 using FahrtenbuchProjektCore.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Windows.Forms;
 
 namespace FahrtenbuchProjekt
 {
@@ -20,7 +19,9 @@ namespace FahrtenbuchProjekt
 
             dataGridViewJourneys.DataSource = _context.Journeys.Where(x => x.Employee == loggedInEmployee).ToList();
             dataGridViewJourneys.Columns["Employee"].Visible = false;
+            dataGridViewJourneys.Columns["EmployeeId"].Visible = false;
             dataGridViewJourneys.Columns["CompanyCar"].Visible = false;
+            dataGridViewJourneys.Columns["LicencePlate"].Visible = true;
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
@@ -31,13 +32,13 @@ namespace FahrtenbuchProjekt
 
         private void buttonAddCompanyCar_Click(object sender, EventArgs e)
         {
-            new AddCompanyCarWindow(this).Show();
+            new AddCompanyCarWindow(this, _context).Show();
             this.Hide();
         }
 
         private void buttonAddEmployee_Click(object sender, EventArgs e)
         {
-            new AddEmployeeWindow().Show();
+            new AddEmployeeWindow(this, _context).Show();
             this.Close();
         }
 
@@ -49,14 +50,14 @@ namespace FahrtenbuchProjekt
             dataGridViewCompanyCars.DataSource = _context.CompanyCars.ToList();
         }
 
-        private void ReloadJourneys()
+        public void ReloadJourneys()
         {
             dataGridViewJourneys.DataSource = _context.Journeys
                 .Include(j => j.CompanyCar)
                 .Include(j => j.Employee)
                 .Where(j => j.Employee == _loggedInEmployee)
                 .ToList();
-            dataGridViewJourneys.CellFormatting += dataGridViewJourneys_CellFormatting;
+            //dataGridViewJourneys.CellFormatting += dataGridViewJourneys_CellFormatting;
         }
 
         private void dataGridViewCompanyCars_SelectionChanged(object sender, EventArgs e)
@@ -119,26 +120,26 @@ namespace FahrtenbuchProjekt
             this.Hide();
         }
 
-        private void dataGridViewJourneys_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (dataGridViewJourneys.Columns[e.ColumnIndex].Name == "TimeStampStart")
-            {
-                if (e.Value != null)
-                {
-                    DateTime timestamp = (DateTime)e.Value;
-                    e.Value = timestamp.ToString("HH:mm");
-                    e.FormattingApplied = true;
-                }
-            }
-            if (dataGridViewJourneys.Columns[e.ColumnIndex].Name == "TimeStampEnd")
-            {
-                if (e.Value != null)
-                {
-                    DateTime timestamp = (DateTime)e.Value;
-                    e.Value = timestamp.ToString("HH:mm");
-                    e.FormattingApplied = true;
-                }
-            }
-        }
+        //private void dataGridViewJourneys_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        //{
+        //    if (dataGridViewJourneys.Columns[e.ColumnIndex].Name == "TimeStampStart")
+        //    {
+        //        if (e.Value != null)
+        //        {
+        //            DateTime timestamp = (DateTime)e.Value;
+        //            e.Value = timestamp.ToString("HH:mm");
+        //            e.FormattingApplied = true;
+        //        }
+        //    }
+        //    if (dataGridViewJourneys.Columns[e.ColumnIndex].Name == "TimeStampEnd")
+        //    {
+        //        if (e.Value != null)
+        //        {
+        //            DateTime timestamp = (DateTime)e.Value;
+        //            e.Value = timestamp.ToString("HH:mm");
+        //            e.FormattingApplied = true;
+        //        }
+        //    }
+        //}
     }
 }

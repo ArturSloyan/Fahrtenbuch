@@ -1,26 +1,18 @@
 ﻿using FahrtenbuchProjektCore.Context;
 using FahrtenbuchProjektCore.Models;
-using Microsoft.VisualBasic.ApplicationServices;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace FahrtenbuchProjekt
 {
     public partial class AddCompanyCarWindow : Form
     {
         private MainWindow _mainForm;
-        public AddCompanyCarWindow(MainWindow mainForm)
+        private JourneybookContext _context;
+        public AddCompanyCarWindow(MainWindow mainForm, JourneybookContext context)
         {
             InitializeComponent();
             _mainForm = mainForm;
+            _context = context;
             comboBoxCarType.DataSource = Enum.GetValues(typeof(CarType));
         }
 
@@ -53,9 +45,8 @@ namespace FahrtenbuchProjekt
             }
             else
             {
-                var context = new JourneybookContext();
-                context.CompanyCars.Add(companyCar);
-                context.SaveChanges();
+                _context.CompanyCars.Add(companyCar);
+                _context.SaveChanges();
 
                 _mainForm.ReloadCompanyCars();
                 _mainForm.Show();

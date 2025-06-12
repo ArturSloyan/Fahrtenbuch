@@ -39,14 +39,14 @@
             label8 = new Label();
             buttonCancel = new Button();
             dateTimePickerDateOfJourney = new DateTimePicker();
-            dateTimePickerStartJourney = new DateTimePicker();
-            dateTimePickerEndJourney = new DateTimePicker();
             buttonSave = new Button();
             label1 = new Label();
             comboBoxCompanyCar = new ComboBox();
             textBoxTravelRoute = new TextBox();
             textBoxKmDistanceDeparture = new TextBox();
             textBoxKmDistanceArrival = new TextBox();
+            dateTimePickerTimeStampStart = new DateTimePicker();
+            dateTimePickerTimeStampEnd = new DateTimePicker();
             SuspendLayout();
             // 
             // labelTitle
@@ -146,20 +146,6 @@
             dateTimePickerDateOfJourney.Size = new Size(308, 23);
             dateTimePickerDateOfJourney.TabIndex = 4;
             // 
-            // dateTimePickerStartJourney
-            // 
-            dateTimePickerStartJourney.Location = new Point(133, 132);
-            dateTimePickerStartJourney.Name = "dateTimePickerStartJourney";
-            dateTimePickerStartJourney.Size = new Size(308, 23);
-            dateTimePickerStartJourney.TabIndex = 4;
-            // 
-            // dateTimePickerEndJourney
-            // 
-            dateTimePickerEndJourney.Location = new Point(133, 161);
-            dateTimePickerEndJourney.Name = "dateTimePickerEndJourney";
-            dateTimePickerEndJourney.Size = new Size(308, 23);
-            dateTimePickerEndJourney.TabIndex = 4;
-            // 
             // buttonSave
             // 
             buttonSave.Location = new Point(383, 371);
@@ -181,6 +167,7 @@
             // 
             // comboBoxCompanyCar
             // 
+            comboBoxCompanyCar.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCompanyCar.FormattingEnabled = true;
             comboBoxCompanyCar.Location = new Point(133, 308);
             comboBoxCompanyCar.Name = "comboBoxCompanyCar";
@@ -211,17 +198,31 @@
             textBoxKmDistanceArrival.TabIndex = 7;
             textBoxKmDistanceArrival.KeyPress += textBoxKmDistanceArrival_KeyPress;
             // 
+            // dateTimePickerTimeStampStart
+            // 
+            dateTimePickerTimeStampStart.Location = new Point(133, 132);
+            dateTimePickerTimeStampStart.Name = "dateTimePickerTimeStampStart";
+            dateTimePickerTimeStampStart.Size = new Size(308, 23);
+            dateTimePickerTimeStampStart.TabIndex = 8;
+            // 
+            // dateTimePickerTimeStampEnd
+            // 
+            dateTimePickerTimeStampEnd.Location = new Point(133, 161);
+            dateTimePickerTimeStampEnd.Name = "dateTimePickerTimeStampEnd";
+            dateTimePickerTimeStampEnd.Size = new Size(308, 23);
+            dateTimePickerTimeStampEnd.TabIndex = 8;
+            // 
             // AddOrEditJourneyWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(487, 406);
+            Controls.Add(dateTimePickerTimeStampEnd);
+            Controls.Add(dateTimePickerTimeStampStart);
             Controls.Add(textBoxKmDistanceArrival);
             Controls.Add(textBoxKmDistanceDeparture);
             Controls.Add(textBoxTravelRoute);
             Controls.Add(comboBoxCompanyCar);
-            Controls.Add(dateTimePickerEndJourney);
-            Controls.Add(dateTimePickerStartJourney);
             Controls.Add(dateTimePickerDateOfJourney);
             Controls.Add(buttonSave);
             Controls.Add(label1);
@@ -254,13 +255,13 @@
         private Label label8;
         private Button buttonCancel;
         private DateTimePicker dateTimePickerDateOfJourney;
-        private DateTimePicker dateTimePickerStartJourney;
-        private DateTimePicker dateTimePickerEndJourney;
         private Button buttonSave;
         private Label label1;
         private ComboBox comboBoxCompanyCar;
         private TextBox textBoxTravelRoute;
         private TextBox textBoxKmDistanceDeparture;
         private TextBox textBoxKmDistanceArrival;
+        private DateTimePicker dateTimePickerTimeStampStart;
+        private DateTimePicker dateTimePickerTimeStampEnd;
     }
 }

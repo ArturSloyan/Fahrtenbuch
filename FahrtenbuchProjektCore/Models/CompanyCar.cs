@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FahrtenbuchProjektCore.CustomAnnotation;
+using System.ComponentModel.DataAnnotations;
 
 namespace FahrtenbuchProjektCore.Models
 {
@@ -14,9 +15,15 @@ namespace FahrtenbuchProjektCore.Models
         public CarType CarType { get; set; }
         [Required(ErrorMessage ="Licenceplate cannot be empty.")]
         [StringLength(10, ErrorMessage ="Licenceplate cannot exceed 10 characters.")]
+        [LicencePlatePattern(ErrorMessage = "Licenceplate are only allowed \"???-###\"")]
         public string LicencePlate { get; set; }
 
         public ICollection<Journey> Journeys { get; set; }
+
+        public override string ToString()
+        {
+            return LicencePlate;
+        }
     }
 
     // IF YOU CHANGE SOMETHING HERE CONSIDER TO DO SO IN THE DATABASE AND IN THE DATAANNOTATION OF PROPERTY "CarType"

@@ -34,9 +34,11 @@
             label4 = new Label();
             textBoxFirstname = new TextBox();
             textBoxLastname = new TextBox();
-            textBoxPasswort = new TextBox();
+            textBoxEmail = new TextBox();
             buttonCancel = new Button();
             buttonSave = new Button();
+            label5 = new Label();
+            textBox1 = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -70,11 +72,11 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(23, 140);
+            label4.Location = new Point(41, 140);
             label4.Name = "label4";
-            label4.Size = new Size(57, 15);
+            label4.Size = new Size(39, 15);
             label4.TabIndex = 3;
-            label4.Text = "Passwort:";
+            label4.Text = "Email:";
             // 
             // textBoxFirstname
             // 
@@ -90,40 +92,60 @@
             textBoxLastname.Size = new Size(204, 23);
             textBoxLastname.TabIndex = 4;
             // 
-            // textBoxPasswort
+            // textBoxEmail
             // 
-            textBoxPasswort.Location = new Point(86, 137);
-            textBoxPasswort.Name = "textBoxPasswort";
-            textBoxPasswort.Size = new Size(204, 23);
-            textBoxPasswort.TabIndex = 4;
+            textBoxEmail.Location = new Point(86, 137);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(204, 23);
+            textBoxEmail.TabIndex = 4;
             // 
             // buttonCancel
             // 
-            buttonCancel.Location = new Point(12, 189);
+            buttonCancel.Location = new Point(12, 229);
             buttonCancel.Name = "buttonCancel";
             buttonCancel.Size = new Size(75, 23);
             buttonCancel.TabIndex = 5;
             buttonCancel.Text = "Abbrechen";
             buttonCancel.UseVisualStyleBackColor = true;
+            buttonCancel.Click += buttonCancel_Click;
             // 
             // buttonSave
             // 
-            buttonSave.Location = new Point(228, 189);
+            buttonSave.Location = new Point(229, 229);
             buttonSave.Name = "buttonSave";
             buttonSave.Size = new Size(75, 23);
             buttonSave.TabIndex = 5;
             buttonSave.Text = "Speichern";
             buttonSave.UseVisualStyleBackColor = true;
+            buttonSave.Click += buttonSave_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(23, 169);
+            label5.Name = "label5";
+            label5.Size = new Size(57, 15);
+            label5.TabIndex = 3;
+            label5.Text = "Passwort:";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(86, 166);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(204, 23);
+            textBox1.TabIndex = 4;
             // 
             // AddEmployeeWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(315, 226);
+            ClientSize = new Size(316, 264);
             Controls.Add(buttonSave);
             Controls.Add(buttonCancel);
-            Controls.Add(textBoxPasswort);
+            Controls.Add(textBox1);
+            Controls.Add(textBoxEmail);
             Controls.Add(textBoxLastname);
+            Controls.Add(label5);
             Controls.Add(textBoxFirstname);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -144,8 +166,10 @@
         private Label label4;
         private TextBox textBoxFirstname;
         private TextBox textBoxLastname;
-        private TextBox textBoxPasswort;
+        private TextBox textBoxEmail;
         private Button buttonCancel;
         private Button buttonSave;
+        private Label label5;
+        private TextBox textBox1;
     }
 }
